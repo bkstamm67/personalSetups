@@ -1,0 +1,86 @@
+#  ---------------------------------------------------------------------------
+#
+#  Description:  This file holds all my ZSH configurations and aliases
+#
+#  Sections:
+#  1.  REMINDERS & NOTES
+#  2.  ENVIRONMENT CONFIGURATION
+#  3.  ALIASES
+#  4.  EXPORTS
+#
+#  ---------------------------------------------------------------------------
+
+#   ---------------------------------------
+#   1. REMINDERS & NOTES
+#   ---------------------------------------
+#
+#   After any change, remember to run the following in the Terminal:  source ~/.zshrc
+
+
+#   -------------------------------
+#   2. ENVIRONMENT CONFIGURATION
+#   -------------------------------
+#
+#  Sections:
+#  1.  General
+#  2.  History configs
+#  3.  Bindkey
+
+#~~~~~~~~ General ~~~~~~~~
+
+setopt AUTO_CD			# automatically change directory
+setopt NO_CASE_GLOB		# globbing to be case-insensitive
+# setopt CORRECT  		# Try to correct the spelling of commands. - does not work on local
+setopt CORRECT_ALL		# Try to correct the spelling of all arguments in a line.
+
+#~~~~~~~~ History configs ~~~~~~~~
+
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history		#saves history
+
+setopt EXTENDED_HISTORY			#saves extended command information
+HISTSIZE=5000					#sets size of commands saved
+setopt SHARE_HISTORY			# share history across multiple zsh sessions
+setopt APPEND_HISTORY			# append to history
+setopt INC_APPEND_HISTORY		# adds commands as they are typed, not at shell exit
+setopt HIST_EXPIRE_DUPS_FIRST	# expire duplicates first
+setopt HIST_IGNORE_DUPS			# do not store duplications
+setopt HIST_FIND_NO_DUPS		# ignore duplicates when searching
+setopt HIST_REDUCE_BLANKS		# removes blank lines from history
+setopt HIST_VERIFY				# show the substituted command in the prompt
+
+# ~~~~~~~~ Bindkey ~~~~~~~~
+
+# for searching when typing a command
+bindkey '^[[A' up-line-or-search		# up arrow
+bindkey '^[[B' down-line-or-search		# down arrow
+
+
+#   -----------------------------
+#   3. ALIASES
+#   -----------------------------
+
+alias finder='open -a Finder ./'            # finder:	Opens current directory in MacOS Finder
+alias ~="cd ~"                              # ~:        Go Home
+alias c='clear'                             # c:        Clear terminal display
+alias idea="/usr/local/bin/idea "			# idea:		Opens files in IntelliJ using provided script
+alias ll='ls -al'							# ll:		Lists all files, verbose
+
+#   ---------------------------------------
+#   4. EXPORTS
+#   ---------------------------------------
+
+#   Set Paths
+#   ------------------------------------------------------------
+export PATH="$PATH:/usr/local/bin/"
+export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
