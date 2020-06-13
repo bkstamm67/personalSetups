@@ -22,9 +22,13 @@
 #   -------------------------------
 #
 #  Sections:
-#  1.  General
-#  2.  History configs
-#  3.  Bindkey
+#  1.  Prompt
+#  2.  General
+#  3.  History configs
+#  4.  Bindkey
+
+#~~~~~~~~ Prompt ~~~~~~~~
+PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{39}%2~ %#%f%b '
 
 #~~~~~~~~ General ~~~~~~~~
 

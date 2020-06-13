@@ -1,8 +1,8 @@
 # Personal Setups
 
-Within this directory is some of my setups for my computers.  Paths should be verified as they can change.  As for 
-setting up the environment & download applications, there are several helpful web pages, and here are some I think are
-really great:
+Within this directory is some of my setups for my computers which I have picked up over time and gotten from other sources (other 
+developers or web sites).  Paths should be verified as they can change.  As for setting up the environment & download applications, 
+there are several helpful web pages, and here are some I think are really great:
 
 ## General Overview
 - [Setting up a new macOS for development](https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/)
