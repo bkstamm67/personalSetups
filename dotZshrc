@@ -28,7 +28,21 @@
 #  4.  Bindkey
 
 #~~~~~~~~ Prompt ~~~~~~~~
+#shows ? and exit code if previous command exit in failure, otherwise, green check
+#shows pwd shortened to the last 2 elements, bolded and sky blue color
 PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{39}%2~ %#%f%b '
+
+# right side prompt, shows time in sky blue
+RPROMPT='%B%F{39}%*%f%b'
+
+#right side prompt, git development, shows branch in sky blue
+# autoload -Uz vcs_info
+# precmd_vcs_info() { vcs_info }
+# precmd_functions+=( precmd_vcs_info )
+# setopt prompt_subst
+# RPROMPT=\$vcs_info_msg_0_
+# zstyle ':vcs_info:git:*' formats '%F{39}(%b)%f'
+# zstyle ':vcs_info:*' enable git
 
 #~~~~~~~~ General ~~~~~~~~
 
@@ -67,7 +81,7 @@ alias finder='open -a Finder ./'            # finder:	Opens current direct
 alias ~="cd ~"                              # ~:        Go Home
 alias c='clear'                             # c:        Clear terminal display
 alias idea="/usr/local/bin/idea "			# idea:		Opens files in IntelliJ using provided script
-alias ll='ls -al'							# ll:		Lists all files, verbose
+alias la='ls -al'							# ll:		Lists all files, verbose
 
 #   ---------------------------------------
 #   4. EXPORTS
@@ -85,6 +99,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+# eval "$(perl -I $HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
